@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quiz Interface</title>
+  <link rel="stylesheet" href="test.css">
+</head>
+<body>
+  <div class="quiz-container">
+    <header>
+      <h1>Test Quiz</h1>
+    </header>
+    
+    <main>
+      <div class="question-number-list">
+        <h3>Questions</h3>
+        <div id="questionNumbers" class="questionNumbers"></div>
+      </div>
+      
+      <div class="question-area">
+        <h3 id="questionNumber">Question 1</h3>
+        <p id="questionText">What is the capital of France?</p>
+        <div class="options">
+          <label><input type="radio" name="answer" value="A"> A) Paris</label><br>
+          <label><input type="radio" name="answer" value="B"> B) London</label><br>
+          <label><input type="radio" name="answer" value="C"> C) Rome</label><br>
+          <label><input type="radio" name="answer" value="D"> D) Madrid</label>
+        </div>
+      </div>
+      
+      <div class="navigation">
+        <a id="backButton" class="nav-button" href="/">Exit</a>
+        <button id="prevButton" class="nav-button" disabled>Previous</button>
+        <button id="nextButton" class="nav-button">Next</button>
+        <button id="submitButton" class="nav-button">Submit</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="test.js"></script>
+  <!-- <script src="script.js"></script> -->
+</body>
+</html>

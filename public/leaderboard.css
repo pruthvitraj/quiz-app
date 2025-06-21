@@ -1,0 +1,81 @@
+/* Leaderboard Section */
+.leaderboard {
+  background-color: #f3f4f6;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.leaderboard h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 1px;
+}
+
+.leaderboard-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+.leaderboard-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.leaderboard-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.leaderboard-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.leaderboard-list .rank {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: #007bff;
+  font-size: 1.2rem;
+}
+
+.leaderboard-list .rank i {
+  margin-right: 10px;
+  color: #ffd700;
+}
+
+.leaderboard-list .info {
+  flex: 1;
+  margin-left: 20px;
+  text-align: left;
+}
+
+.leaderboard-list .info h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.leaderboard-list .info span {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.leaderboard-list .marks {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #007bff;
+}

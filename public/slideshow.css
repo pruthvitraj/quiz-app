@@ -1,0 +1,53 @@
+
+  
+/* Home Section */
+.hom-screen {
+  position: relative;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
+  color: #fff;
+}
+
+.slideshow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.welcome-text {
+  z-index: 1;
+}
+
+.welcome-text h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.welcome-text p {
+  font-size: 1.5rem;
+}

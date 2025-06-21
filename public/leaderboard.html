@@ -1,0 +1,142 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard</title>
+  <link rel="stylesheet" href="leaderboard.css">
+  <link rel="stylesheet" href="nav.css">
+  <style>
+    .flex_div{
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .category, .correct-answer {
+      padding: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <!-- Upper Section -->
+    <div class="navbar-upper">
+      <div class="logo">
+        <img src="images/logo1.png" alt="Quiz Logo" class="logo-img">
+        <a class="app-name" style="text-decoration: none; color: rgb(109, 109, 109);" href="index.html">Quiz Web App</a>
+      </div>
+    </div>
+    
+    <!-- Lower Section -->
+    <div class="navbar-lower">
+      <ul class="nav-links">
+        <li><a href="index.html#home-screen">Categories</a></li>
+        <li><a href="leaderboard.html">Leaderboard</a></li>
+        <li><a href="#help">Help</a></li>
+        <li><a href="quiz_add.html">Add Quiz</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="leaderboard">
+    <h2>Leaderboard</h2>
+    <div class="leaderboard-container">
+      <ul id="leaderboard-list" class="leaderboard-list">
+        <li><div class="flex_div"><b>Category</b><b>Score</b></div></li>
+        <!-- Dynamic list items will be added here -->
+      </ul>
+    </div>
+  </section>
+
+  <hr>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- About Section -->
+      <div class="footer-about">
+        <h3>About Quiz Web App</h3>
+        <p>Your go-to platform for testing and enhancing your knowledge through fun and interactive quizzes.</p>
+      </div>
+      
+      <!-- Contact Section -->
+      <div class="footer-contact">
+        <h3>Contact Us</h3>
+        <ul>
+          <li>Email: <a href="mailto:pruthvipatil0058@gmail.com">pruthvipatil0058@gmail.com</a></li>
+          <li>Email: <a href="mailto:pavan59@gmail.com">pavan69@gmail.com</a></li>
+          <li>Phone: <a href="tel:+7276053747">+917276053747</a></li>
+        </ul>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#leaderboard">Leaderboard</a></li>
+          <li><a href="#help">Help</a></li>
+          <li><a href="#add-quiz">Add Quiz</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p style="color: white;">&copy; 2024 Quiz Web App. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Define a mapping for short codes to full category names
+    const categoryMapping = {
+      'c': 'C Language',
+      'cpp': 'C++',
+      'javascript': 'JavaScript',
+      'python': 'Python',
+      'java': 'Java',
+      'dsa': 'Data Structures & Algorithms',
+      'html': 'HTML',
+      'css': 'CSS',
+      // Add more categories as needed
+    };
+
+    // Retrieve questionsSolved from local storage
+    let questionsSolved = localStorage.getItem('questionsSolved');
+    
+    // Parse the stored data if it exists
+    if (questionsSolved) {
+      questionsSolved = JSON.parse(questionsSolved);
+    } else {
+      questionsSolved = [];
+    }
+
+    // Display data in the leaderboard
+    const leaderboardList = document.getElementById('leaderboard-list');
+    
+    if (questionsSolved.length === 0) {
+      leaderboardList.innerHTML = '<li>No data available</li>';
+    } else {
+      questionsSolved.forEach(entry => {
+        // Create a list item for each entry
+        const li = document.createElement('li');
+        li.classList.add('leaderboard-item');
+        
+        // Map the short category code to the full name
+        const fullCategory = categoryMapping[entry.questionCat] || entry.questionCat; // Default to the code if no match
+        
+        // Set the inner HTML of the list item
+        li.innerHTML = `
+          <div class="flex_div">
+            <span class="category">${fullCategory}</span>
+            <span class="correct-answer">${entry.correctAnswer}</span>
+          </div>
+        `;
+        
+        leaderboardList.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>

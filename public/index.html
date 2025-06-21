@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz App</title>
+  <link rel="stylesheet" href="code.css">
+  <link rel="stylesheet" href="slideshow.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <!-- Upper Section -->
+    
+    <div class="navbar-upper">
+      <div class="logo">
+        <img src="images/logo1.png" alt="Quiz Logo" class="logo-img">
+        <span class="app-name"><a style="color: rgb(103, 105, 106); text-decoration: none;" href="/">Quiz Web App</a></span>
+      </div>
+    </div>
+    
+    <!-- <div class="menu-icon" onclick="toggleMenu()">&#9776;</div> -->
+    <!-- Lower Section -->
+    <div class="navbar-lower">
+      <center>
+      <ul class="nav-links">
+        <!-- Updated link to point to the section with id "categories" -->
+        <li><a href="#home-screen">Categories</a></li>
+        <li><a href="leaderboard.html">Leaderboard</a></li>
+        <li><a href="help.html">Help</a></li>
+        <li><a href="quiz_add.html">Add Quiz</a></li>
+      </ul></center>
+    </div>
+  </nav>
+
+  <!-- Content Placeholder -->
+  <section class="hom-screen">
+    <div class="slideshow">
+      <!-- <img src="images/quizwebapplicationbackgroundimage.jpg" alt="Quiz Image 1" class="slide"> -->
+      <img src="images/set-bright-school-stationery-orange-wall.webp" alt="Quiz Image 2" class="slide">
+      <img src="images/yellow-question-mark.jpg" alt="Quiz Image 3" class="slide">
+    </div>
+    <div class="welcome-text">
+      <div class="demo">demo</div>
+      <h1>Welcome to the Quiz App</h1>
+      <p id="home-screen">Explore categories and challenge yourself with exciting quizzes!</p>
+    </div>
+  </section>
+
+  <!-- Home Screen Content -->
+  <div class="home-screen" >
+    <p>Select a category to start your quiz!</p>
+    
+    <div class="categories" id="categories">
+      <div class="category-box">
+        <h3>C Language</h3>
+        <p>Test your knowledge of the basics of the C programming language.</p>
+        <a href="/test.html?category=c" class="start-btn">Start Quiz</a>
+      </div>
+      
+      <div class="category-box">
+        <h3>Python</h3>
+        <p>Explore concepts of Python, from basics to advanced levels.</p>
+        <a href="/test.html?category=python" class="start-btn">Start Quiz</a>
+      </div>
+      
+      <div class="category-box">
+        <h3>Java</h3>
+        <p>Dive into the object-oriented world of Java programming.</p>
+        <a href="/test.html?category=java" class="start-btn">Start Quiz</a>
+      </div>
+      
+      <div class="category-box">
+        <h3>JavaScript</h3>
+        <p>Master the language of the web and enhance your frontend skills.</p>
+        <a href="/test.html?category=javascript" class="start-btn">Start Quiz</a>
+      </div>
+      
+      <div class="category-box">
+        <h3>DSA</h3>
+        <p>Challenge yourself with Data Structures and Algorithms quizzes.</p>
+        <a href="/test.html?category=dsa" class="start-btn">Start Quiz</a>
+      </div>
+      
+      <div class="category-box">
+        <h3>C++</h3>
+        <p>Test your skills in C++ programming, from syntax to STL.</p>
+        <a href="/test.html?category=cpp" class="start-btn">Start Quiz</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <!-- About Section -->
+      <div class="footer-about">
+        <h3>About Quiz Web App</h3>
+        <p>Your go-to platform for testing and enhancing your knowledge through fun and interactive quizzes.</p>
+      </div>
+      
+      <!-- Contact Section -->
+      <div class="footer-contact">
+        <h3>Contact Us</h3>
+        <ul>
+          <li>Email: <a href="mailto:pruthvipatil0058@gmail.com">pruthvipatil0058@gmail.com</a></li>
+          <li>Email: <a href="mailto:pavan59@gmail.com">pavan59@gmail.com</a></li>
+          <li>Phone: <a href="tel:+7276053747">+7276053747</a></li>
+        </ul>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#leaderboard">Leaderboard</a></li>
+          <li><a href="#help">Help</a></li>
+          <li><a href="#add-quiz">Add Quiz</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p style="color: white;">&copy; 2024 Quiz Web App. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Check if the page has been loaded before in this session
+    if (!sessionStorage.getItem('pageLoaded')) {
+      // Redirect to '/' if it's the first time the page loads
+      sessionStorage.setItem('pageLoaded', true);
+      if (window.location.pathname !== '/') {
+        window.location.href = '/';
+      }
+    }
+  </script>
+  <script src="slidesshow.js"> </script>
+  <script>function toggleMenu() {
+    document.querySelector(".nav-links").classList.toggle("active");
+  }
+  </script>
+</body>
+</html>
