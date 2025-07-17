@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Quiz</title>
+  <link rel="stylesheet" href="/nav.css"> <!-- Assuming nav.css is in public folder -->
+  <style>
+    /* Your full CSS (unchanged, already well written) */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f7fc;
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      color: #333;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .navbar-upper {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    .app-name {
+      color: white;
+      font-size: 24px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .navbar-lower {
+      padding: 10px 20px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 80px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .nav-links li a:hover {
+      color: #007bff;
+    }
+
+    .add-quiz {
+      background-color: #fff;
+      width: 80%;
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: #4CAF50;
+      outline: none;
+    }
+
+    #submit-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    #submit-btn:hover {
+      background-color: #45a049;
+    }
+
+    .footer {
+      background-color: #f5f5f5;
+      color: #000000;
+      padding: 20px 0;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-container > div {
+      flex: 1 1 300px;
+      padding: 10px;
+    }
+
+    .footer h3 {
+      color: #000000;
+      margin-bottom: 10px;
+    }
+
+    .footer p, .footer ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      line-height: 1.6;
+    }
+
+    .footer a {
+      color: #000000;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer a:hover {
+      color: #007bff;
+    }
+
+    .footer-bottom {
+      background-color: #222;
+      padding: 10px 0;
+      margin-top: 20px;
+      font-size: 12px;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-upper">
+      <div class="logo">
+        <img src="/images/logo1.png" alt="Quiz Logo" class="logo-img">
+        <span class="app-name"><a style="color: rgb(103, 105, 106); text-decoration: none;" href="/">Quiz Web App</a></span>
+      </div>
+    </div>
+
+    <div class="navbar-lower">
+      <ul class="nav-links">
+       <li><a href="/">home-screen</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Add Quiz Section -->
+  <section class="add-quiz">
+    <h2>Add a New Question</h2>
+    <form id="add-quiz-form">
+      <div class="form-group">
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+          <option value="">Select Category</option>
+          <% categories.forEach(category => { %>
+            <option value="<%= category %>"><%= category.charAt(0).toUpperCase() + category.slice(1) %></option>
+          <% }) %>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="question">Question:</label>
+        <input type="text" id="question" name="question" required>
+      </div>
+
+      <div class="form-group">
+        <label for="optionA">Option A:</label>
+        <input type="text" id="optionA" name="optionA" required>
+      </div>
+
+      <div class="form-group">
+        <label for="optionB">Option B:</label>
+        <input type="text" id="optionB" name="optionB" required>
+      </div>
+
+      <div class="form-group">
+        <label for="optionC">Option C:</label>
+        <input type="text" id="optionC" name="optionC" required>
+      </div>
+
+      <div class="form-group">
+        <label for="optionD">Option D:</label>
+        <input type="text" id="optionD" name="optionD" required>
+      </div>
+
+      <div class="form-group">
+        <label for="correctAnswer">Correct Answer (A, B, C, D):</label>
+        <input type="text" id="correctAnswer" name="correctAnswer" required>
+      </div>
+
+      <button type="submit" id="submit-btn">Add Question</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-about">
+        <h3>About Quiz Web App</h3>
+        <p>Your go-to platform for testing and enhancing your knowledge through fun and interactive quizzes.</p>
+      </div>
+      <div class="footer-contact">
+        <h3>Contact Us</h3>
+        <ul>
+          <li><a href="mailto:pruthvipatil0058@gmail.com">pruthvipatil0058@gmail.com</a></li>
+          <li><a href="tel:+7276053747">+91 7276053747</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+         <li><a href="/">home-screen</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2024 Quiz Web App. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('add-quiz-form');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const questionData = {
+        category: document.getElementById('category').value,
+        questionText: document.getElementById('question').value,
+        optionA: document.getElementById('optionA').value,
+        optionB: document.getElementById('optionB').value,
+        optionC: document.getElementById('optionC').value,
+        optionD: document.getElementById('optionD').value,
+        correctAnswer: document.getElementById('correctAnswer').value,
+      };
+
+      try {
+        const response = await fetch('/api/add-question', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(questionData),
+        });
+
+        if (response.ok) {
+          alert("Question added successfully!");
+          form.reset();
+        } else {
+          alert("Failed to add question.");
+        }
+      } catch (error) {
+        console.error("Error submitting question:", error);
+        alert("Something went wrong.");
+      }
+    });
+  </script>
+</body>
+</html>
